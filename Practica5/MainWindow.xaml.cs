@@ -24,5 +24,7 @@ namespace Practica5
         {
             InitializeComponent();
         }
+
     }
+
 }

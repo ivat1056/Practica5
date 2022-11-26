@@ -4,6 +4,47 @@
              xmlns:local="clr-namespace:Practica5"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <Style TargetType="Window" x:Key="BColor">  <!--задний фон--> 
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF53FA84" Offset="0"/>
+                        <GradientStop Color="#FF0FAD9B" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <Style x:Key="TBStyle" TargetType="TextBlock">  <!--текст-->
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="#FF8903FF"/>
+        </Style>
+
+        <Style x:Key="btnstyle1" TargetType="Button">   <!--кнопки-->
+            <Style.Setters>
+                <Setter Property="Background" Value="Green"/>
+                <Setter Property="FontWeight" Value="DemiBold"/>
+                <Setter Property="Height" Value="auto"/>
+                <Setter Property="Width" Value="300"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="Foreground" Value="White"/>
+              </Style.Setters>
+        </Style>
+
+            <ResourceDictionary  x:Key="DictionaryDisigne">   <!--библиатека дизайна--> 
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+        
     </Application.Resources>
 </Application>
