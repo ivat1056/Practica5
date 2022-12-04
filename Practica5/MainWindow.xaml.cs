@@ -384,9 +384,8 @@ namespace Practica5
         {
             SP.Visibility = Visibility.Visible;
             BtnPerform.Visibility = Visibility.Visible;
-            textLableRezult.Visibility = Visibility.Visible;
-            textLableRezult2.Visibility = Visibility.Visible;
-            Year.Visibility = Visibility.Visible;
+            
+            
             TextYear.Visibility = Visibility.Visible;
         }
 
