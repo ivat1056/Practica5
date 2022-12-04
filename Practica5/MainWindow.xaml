@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Practica5"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+       
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
         Style="{StaticResource ResourceKey= BColor}"
         Title="Славяно-Японский Гороскоп" Height="600" Width="950">
     <Grid Name="MainRoot">
-
 
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -22,10 +22,54 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Выберите гороскоп" x:Name="textLable" Style="{StaticResource ResourceKey= TBStyle}"/>
-        <Button Name="Clavic" Content="Старославянский"  HorizontalAlignment="Center"    Grid.Row="1" Grid.Column="0" Style="{StaticResource btnstyle1}"></Button> 
-        <Button Name="Japan"  Content="Японский" HorizontalAlignment="Center"   Grid.Row="1" Grid.Column="1" Style="{StaticResource btnstyle1}"></Button>
-        <Image x:Name="G2" gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="image/2.gif" HorizontalAlignment="Center" Height="auto" Margin="10" Grid.Row="2" VerticalAlignment="Top" Width="auto" Grid.Column="1" Source="image/2.gif"/>
+        <Button Name="Clavic" Content="Старославянский"  HorizontalAlignment="Center"    Grid.Row="1" Grid.Column="0" Style="{StaticResource btnstyle1}" Click="BtnSlacic"></Button>
+        <Button Name="Japan"  Content="Японский" HorizontalAlignment="Center"   Grid.Row="1" Grid.Column="1" Style="{StaticResource btnstyle1}" Click="BtnJapan"></Button>
+        <Image x:Name="G2" gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="image/2.gif" HorizontalAlignment="Center" Height="auto" Margin="10" Grid.Row="2" VerticalAlignment="Top" Width="auto" Grid.Column="1" Source="image/2.gif" />
         <Image x:Name="G1" gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="image/1.gif" HorizontalAlignment="Center" Height="auto"  Margin="10" Grid.Row="2" VerticalAlignment="Top" Width="auto" Grid.Column="0" Source="image/1.gif"/>
+        <Button Name="BtnAddCSV1" Content="Выбрать csv файл"  HorizontalAlignment="Center"    Grid.Row="1" Grid.Column="0" Style="{StaticResource btnstyle1}" Click="BtnAddCSV_Click" Visibility="Collapsed"></Button>
+        <Button Name="BtnAddCSV2" Content="Выбрать csv файл"  HorizontalAlignment="Center"    Grid.Row="1" Grid.Column="0" Style="{StaticResource btnstyle1}" Click="BtnAddCSV_Click" Visibility="Collapsed"></Button>
+
+        <Button Name="BtnManually2" Content="Ввести данные вручную"  HorizontalAlignment="Center"    Grid.Row="1" Grid.Column="1" Style="{StaticResource btnstyle1}" Click="BtnManually2_Click" Visibility="Collapsed"></Button>
+        <Button Name="BtnManually1" Content="Ввести данные вручную"  HorizontalAlignment="Center"    Grid.Row="1" Grid.Column="1" Style="{StaticResource btnstyle1}" Click="BtnManually_Click" Visibility="Collapsed" ></Button>
+
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Выберите тип входных данных"  x:Name="textLable2" Style="{StaticResource ResourceKey= TBStyle}" Visibility="Collapsed"/>
+
+        <StackPanel x:Name="TB" Grid.Row="2" Grid.Column="1" Visibility="Collapsed"  >
+
+            <TextBlock HorizontalAlignment="Center">День</TextBlock>
+
+            <TextBox  Width="150" ToolTip="Напишите день "  ></TextBox>
+
+            <TextBlock HorizontalAlignment="Center" ToolTip="Здесь необходимо выбрать месяц">Месяц</TextBlock>
+
+            <ComboBox  >
+
+                <ComboBoxItem>Январь</ComboBoxItem>
+                <ComboBoxItem>Февраль</ComboBoxItem>
+                <ComboBoxItem>Март</ComboBoxItem>
+                <ComboBoxItem>Апрель</ComboBoxItem>
+                <ComboBoxItem>Май</ComboBoxItem>
+                <ComboBoxItem>Июнь</ComboBoxItem>
+                <ComboBoxItem>Июль</ComboBoxItem>
+                <ComboBoxItem>Август</ComboBoxItem>
+                <ComboBoxItem>Сентябрь</ComboBoxItem>
+                <ComboBoxItem>Октябрь</ComboBoxItem>
+                <ComboBoxItem>Ноябрь</ComboBoxItem>
+                <ComboBoxItem>Декабрь</ComboBoxItem>
+            </ComboBox>
+            <Button Name="BtnPerform" Content="Вывести результат"  HorizontalAlignment="Center"  Style="{StaticResource btnstyle1}" Click="BtnPerform_Click" Visibility="Collapsed" ></Button>
+
+
+
+        </StackPanel>
+
+
+
+
+
+
+
 
     </Grid>
+
 </Window>
