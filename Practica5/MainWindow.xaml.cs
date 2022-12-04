@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -52,6 +53,7 @@ namespace Practica5
             BtnAddCSV1.Visibility =Visibility.Visible;
             BtnManually1.Visibility = Visibility.Visible;
             textLable2.Visibility = Visibility.Visible;
+            G4.Visibility = Visibility.Visible;
 
         }
         private void BtnJapan(object sender, RoutedEventArgs e)
@@ -64,6 +66,7 @@ namespace Practica5
             BtnAddCSV2.Visibility = Visibility.Visible;
             BtnManually2.Visibility = Visibility.Visible;
             textLable2.Visibility = Visibility.Visible;
+            G3.Visibility = Visibility.Visible;
         }
 
         static int Check(int day, int month)
@@ -76,7 +79,7 @@ namespace Practica5
             {
                 return 1;
             }
-            if (((month != 4) || (month != 6) || (month != 9) || (month != 11) || (month != 2)) && ((day <= 31) && (month <= 12)))
+            if (((month != 4) && (month != 6) && (month != 9) && (month != 11) ) && ((day <= 31) && (month <= 12) && (month != 2)))
             {
                 return 1;
             }
@@ -86,17 +89,64 @@ namespace Practica5
             }
         }
 
-
+        public int GetMonthNumber(string month)                    
+        {
+            if (month == "Январь")
+            {
+                return 1;
+            }
+            if (month == "Февраль")
+            {
+                return 2;
+            }
+            if (month == "Март")
+            {
+                return 3;
+            }
+            if (month == "Апрель")
+            {
+                return 4;
+            }
+            if (month == "Май")
+            {
+                return 5;
+            }
+            if (month == "Июнь")
+            {
+                return 6;
+            }
+            if (month == "Июль")
+            {
+                return 7;
+            }
+            if (month == "Август")
+            {
+                return 8;
+            }
+            if (month == "Сентябрь")
+            {
+                return 9;
+            }
+            if (month == "Октябрь")
+            {
+                return 10;
+            }
+            if (month == "Ноябрь")
+            {
+                return 11;
+            }
+            else
+            {
+                return 12;
+            }
+        }
 
         static string JapanSign(int year)
         {
-            const int firstYear = 1937;
+            const int firstYear = 1924;
             int element = (year - firstYear) % 12;
-            element++;
-            while (element > 12)
-            {
-                element -=12;
-            }
+            
+           
             string str = string.Empty;
 
             switch (element)
@@ -210,7 +260,6 @@ namespace Practica5
             {
                 return "Karachun";
             }
-
         }
 
          static void CSV_Data(List<Data> S) 
@@ -333,19 +382,84 @@ namespace Practica5
 
         private void BtnManually_Click(object sender, RoutedEventArgs e)
         {
-            TB.Visibility = Visibility.Visible;
-        }
-
-        private void BtnManually2_Click(object sender, RoutedEventArgs e)
-        {
-            TB.Visibility = Visibility.Visible;
+            SP.Visibility = Visibility.Visible;
             BtnPerform.Visibility = Visibility.Visible;
-
+            textLableRezult.Visibility = Visibility.Visible;
+            textLableRezult2.Visibility = Visibility.Visible;
+            Year.Visibility = Visibility.Visible;
+            TextYear.Visibility = Visibility.Visible;
         }
 
-        private void BtnPerform_Click(object sender, RoutedEventArgs e)
+        private void BtnManually2_Click(object sender, RoutedEventArgs e) // японский 
         {
+            SP2.Visibility = Visibility.Visible;
+            Year.Visibility=Visibility.Visible;
+            TextYear.Visibility = Visibility.Visible;
+            BtnPerform2.Visibility = Visibility.Visible;
+        }
 
+        private void BtnPerform_Click(object sender, RoutedEventArgs e) // славянский 
+        {
+           
+            string month = ComboBox1.Text;
+            string day = TextDay.Text;
+            
+            if ((ComboBox1.Text == "") || (TextDay.Text == ""))
+            {
+                MessageBox.Show("Все поля должны быть заполнены!!");
+                
+            }
+            else
+            {
+                int CheckD = Convert.ToInt32(day);
+                int CheckM = GetMonthNumber(month);
+                if ((Check(CheckD, CheckM)) == 1)
+                {
+
+                    textLableRezult.Visibility = Visibility.Visible;
+                    textLableRezult2.Visibility = Visibility.Visible;
+                    string Rezult = SlavicSign(CheckD, CheckM);
+                    textLableRezult2.Content = Rezult;
+                }
+                else
+                {
+                    MessageBox.Show("Некорректный ввод даты !!");
+                }
+                    
+                
+            }
+        }
+
+        private void TextDay12(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = new Regex("[^0-9]").IsMatch(e.Text);
+            
+        }
+
+        private void BtnPerform2_Click(object sender, RoutedEventArgs e)
+        {
+            string year = TextYear.Text;
+
+            if (TextYear.Text == "")
+            {
+                MessageBox.Show("Поле год должно быть заполнено!!");
+
+            }
+            else
+            {
+                int CheckY = Convert.ToInt32(year);
+                
+                if(CheckY > 0)
+                {
+                    textLableRezult3.Visibility = Visibility.Visible;
+                    textLableRez.Visibility = Visibility.Visible;
+                    
+                    string Rezult = JapanSign(CheckY);
+                    textLableRezult3.Content = Rezult;
+                }
+
+
+            }
         }
     }
 

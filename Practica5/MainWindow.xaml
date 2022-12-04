@@ -34,15 +34,15 @@
 
         <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Выберите тип входных данных"  x:Name="textLable2" Style="{StaticResource ResourceKey= TBStyle}" Visibility="Collapsed"/>
 
-        <StackPanel x:Name="TB" Grid.Row="2" Grid.Column="1" Visibility="Collapsed"  >
+        <StackPanel x:Name="SP" Grid.Row="2" Grid.Column="1" Visibility="Collapsed" PreviewTextInput="TextDay12"  >
 
-            <TextBlock HorizontalAlignment="Center">День</TextBlock>
+            <TextBlock HorizontalAlignment="Center" Style="{StaticResource ResourceKey= TextBlock1}" >День</TextBlock>
 
-            <TextBox  Width="150" ToolTip="Напишите день "  ></TextBox>
+            <TextBox x:Name ="TextDay"   Width="150" ToolTip="Напишите день " Style="{StaticResource ResourceKey= TextDay}"></TextBox>
 
-            <TextBlock HorizontalAlignment="Center" ToolTip="Здесь необходимо выбрать месяц">Месяц</TextBlock>
+            <TextBlock HorizontalAlignment="Center"  ToolTip="Здесь необходимо выбрать месяц"  Style="{StaticResource ResourceKey= TextBlock1}" >Месяц</TextBlock >
 
-            <ComboBox  >
+            <ComboBox  x:Name="ComboBox1">
 
                 <ComboBoxItem>Январь</ComboBoxItem>
                 <ComboBoxItem>Февраль</ComboBoxItem>
@@ -58,11 +58,21 @@
                 <ComboBoxItem>Декабрь</ComboBoxItem>
             </ComboBox>
             <Button Name="BtnPerform" Content="Вывести результат"  HorizontalAlignment="Center"  Style="{StaticResource btnstyle1}" Click="BtnPerform_Click" Visibility="Collapsed" ></Button>
+            <TextBlock  Text="Результат" x:Name="textLableRezult" Style="{StaticResource ResourceKey= TBStyle}" Visibility="Collapsed"/>
 
-
-
+            <Label x:Name ="textLableRezult2" Content="Label" HorizontalAlignment="Center"  Style="{StaticResource ResourceKey= LableR}" VerticalAlignment="Top" Visibility="Collapsed"/>
         </StackPanel>
+        <Image  x:Name="G3" gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="image/3.gif" HorizontalAlignment="Center" Height="auto"  Margin="10" Grid.Row="2" VerticalAlignment="Top" Width="auto" Grid.Column="0" Source="image/3.gif" Visibility="Collapsed"/>
+        <Image  x:Name="G4" gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="image/4.gif" HorizontalAlignment="Center" Height="auto"  Margin="10" Grid.Row="2" VerticalAlignment="Top" Width="auto" Grid.Column="0" Source="image/4.gif" Visibility="Collapsed"/>
 
+        <StackPanel x:Name="SP2" Grid.Row="2" Grid.Column="1" Visibility="Collapsed" PreviewTextInput="TextDay12"  >
+
+            <TextBlock  x:Name ="Year" HorizontalAlignment="Center" Style="{StaticResource ResourceKey= TextBlock1}" >Год</TextBlock>
+            <TextBox x:Name ="TextYear"   Width="150" ToolTip="Напишите год " Style="{StaticResource ResourceKey= TextDay}"></TextBox>
+            <Button Name="BtnPerform2" Content="Вывести результат"  HorizontalAlignment="Center"  Style="{StaticResource btnstyle1}" Click="BtnPerform2_Click" Visibility="Collapsed" ></Button>
+            <TextBlock  Text="Результат" x:Name="textLableRez" Style="{StaticResource ResourceKey= TBStyle}" Visibility="Collapsed"/>
+            <Label x:Name ="textLableRezult3" Content="Label" HorizontalAlignment="Center"  Style="{StaticResource ResourceKey= LableR}" VerticalAlignment="Top" Visibility="Collapsed"/>
+        </StackPanel>
 
 
 
